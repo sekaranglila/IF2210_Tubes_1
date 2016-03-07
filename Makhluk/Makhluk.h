@@ -16,7 +16,7 @@ public:
      * @param _arah defines its direction
      * @param _type defines what type of Makhluk it is
      */
-    Makhluk(double _power, int _arah, char _type, int _deltaT);
+    Makhluk(double _power, int _arah, string _type, int _deltaT);
 
     //dtor
     /**
@@ -53,7 +53,7 @@ public:
      * Get the type of this Makhluk
      * @return type return string depends on its child
      */
-    char getType();
+    string getType();
 
     /**
      * Get the deltaT of Makhluk
@@ -88,20 +88,13 @@ public:
      * Set the type of this Makhluk
      * @param s string that defines what the Makhluk type will be
      */
-    void setType(char);
+    void setType(string);
 
     /**
      * Set the direction of this Makhluk
      * @param x integer of arah between 0 - 7
      */
     void setArah(int);
-
-    /**
-     * Set the position of a makhluk
-     * @param x X-axis position
-     * @param y Y-axis position
-     */
-    void setPos(int x, int y);
 
     //method lain
     /**
@@ -135,9 +128,19 @@ public:
      */
     void resetTime();
 
+    /**
+     * Get the char of Makhluk
+     */
+    char getChar();
+
+    /**
+     * Set the char of Makhluk
+     */
+    void setChar(char c1);
+
 private:
     static int idCounter; // Sebuah pencacah jumlah makhluk hidup yang telah dibuat
-    char type; // Mencatat type dari makhluk tersebut
+    string type; // Mencatat type dari makhluk tersebut
     int id; // Id sebuah makhluk hidup. Id makhluk hidup yang pertama kali diciptakan adalah 0
     int arah; // Memberi arah gerak dari makhluk dengan timur = 0 hingga tenggara = 7, secara berlawanan arah jarum jam.
     double power; // Kekuatan suatu makhluk
@@ -145,6 +148,7 @@ private:
     int currT;
     int pos[2]; // pos[0] merupakan posisi baris, dan pos[1] merupakan posisi kolom sebuah Makhluk
     int status; // Status hidup atau mati makhluk. Hidup = 1, makhluk = 0
+    char c; //Karakter yang ditampilkan pada board
 };
 
 

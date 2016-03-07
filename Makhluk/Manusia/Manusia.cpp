@@ -4,7 +4,7 @@
 
 #include "Manusia.h"
 
-Manusia::Manusia(int power, char type) : Makhluk(power, randomizeDir(), type, randomizeT()) {
+Manusia::Manusia(string type) : Makhluk(randomizePower(), randomizeDir(), type, randomizeT()) {
 
 }
 
@@ -19,8 +19,25 @@ void Manusia::makan(Makhluk *M) {
     setPower(x);
 }
 
+double Manusia::randomizePower() {
+//Kamus Lokal
+    double x;
+
+//Algoritma
+    if (getType() == "Male"){ //Jika manusia berkelamin pria
+        x = rand() % 31 + 20; //generate integer power x secara random antara 20 - 50
+    } else { //Jika manusia berkelamin wanita
+        x = rand() % 21 + 20; //generate integer power x secara random antara 20 - 40
+    }
+    return x;
+}
+
 int Manusia::randomizeDir() {
-    int x = rand() % 8; //generate integer arah y secara random antara 0 - 7
+//Kamus Lokal
+    int x;
+
+//Algoritma
+    x = rand() % 8; //generate integer arah y secara random antara 0 - 7
     return x;
 }
 

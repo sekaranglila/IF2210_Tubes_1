@@ -1,5 +1,5 @@
 #include "Omnivore.h"
 
-Omnivore::Omnivore() : Hewan('O') { }
+Omnivore::Omnivore() : Hewan("Omnivore") { }
 
 Omnivore::~Omnivore() { }

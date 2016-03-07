@@ -13,7 +13,7 @@ public:
      * Constructor for class Manusia
      * @param type type is a string that defines the type of Manusia Constructed, Male or Female
      */
-    Manusia(int power, char type);
+    Manusia(string type);
 
     /**
      * Deconstructor for class Manusia
@@ -30,7 +30,7 @@ public:
      * Virtual Function that randomizes the power of Manusia Constructed, ranged 20 - 50 for Male and 20 - 40 for female
      * @return x x is the power randomized in the type double
      */
-    virtual double randomizePower() = 0;
+    virtual double randomizePower();
 
     /**
      * Virtual Function that randomizes the Direction of Manusia ranged 0 - 7

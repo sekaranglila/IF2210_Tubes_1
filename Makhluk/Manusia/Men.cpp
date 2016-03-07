@@ -4,14 +4,10 @@
 
 #include "Men.h"
 
-Men::Men() : Manusia(randomizePower(), 'M'){
+Men::Men() : Manusia("Male"){
 
 }
 
 Men::~Men() {
 
-}
-
-double Men::randomizePower() {
-    return (rand() % 31) + 20;
 }

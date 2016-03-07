@@ -4,7 +4,7 @@
 
 #include "NonBeracun.h"
 
-NonBeracun::NonBeracun() : Tumbuhan('N') {
+NonBeracun::NonBeracun() : Tumbuhan("NonBeracun") {
 
 }
 

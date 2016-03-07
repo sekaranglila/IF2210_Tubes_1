@@ -13,7 +13,7 @@ public :
      * Constructor for class Tumbuhan
      * @param type A string that defines the type of Tumbuhan Constructed, which is Beracun or NonBeracun
      */
-    Tumbuhan(char type);
+    Tumbuhan(string type);
 
     /**
      * Deconstructor for class Tumbuhan

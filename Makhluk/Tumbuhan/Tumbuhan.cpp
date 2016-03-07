@@ -5,7 +5,7 @@
 #include "Tumbuhan.h"
 
 //ctor
-Tumbuhan::Tumbuhan(char type) : Makhluk(randomizePower(), randomizeDir(), type, randomizeT()) {
+Tumbuhan::Tumbuhan(string type) : Makhluk(randomizePower(), randomizeDir(), type, randomizeT()) {
 
 }
 

@@ -1,6 +1,6 @@
 #include "Bakteri.h"
 
-Bakteri::Bakteri() : Makhluk(randomizePower(), randomizeDir(), 'B', randomizeT()) { }
+Bakteri::Bakteri() : Makhluk(randomizePower(), randomizeDir(), "Bakteri", randomizeT()) { }
 
 Bakteri::~Bakteri() { }
 

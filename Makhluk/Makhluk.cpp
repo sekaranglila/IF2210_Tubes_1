@@ -5,7 +5,7 @@ using namespace std;
 int Makhluk::idCounter = 0;
 
 //ctor
-Makhluk::Makhluk(double _power, int _arah, char _type, int _deltaT) : id(idCounter++), power(_power), status(1), type(_type), arah(_arah),
+Makhluk::Makhluk(double _power = 0, int _arah = 0, string _type = "", int _deltaT = 0) : id(idCounter++), power(_power), status(1), type(_type), arah(_arah),
                                                            deltaT(_deltaT), currT(_deltaT) { }
 
 //dtor
@@ -20,7 +20,7 @@ int Makhluk::getStatus() {
     return status;
 }
 
-char Makhluk::getType() {
+string Makhluk::getType() {
     return type;
 }
 
@@ -53,17 +53,12 @@ void Makhluk::setAlive() {
     status = 1;
 }
 
-void Makhluk::setType(char s) {
+void Makhluk::setType(string s) {
     type = s;
 }
 
 void Makhluk::setArah (int x) {
     arah = x;
-}
-
-void Makhluk::setPos(int x, int y) {
-    pos[0] = x;
-    pos[1] = y;
 }
 
 // Other methods
@@ -73,4 +68,12 @@ void Makhluk::decTime() {
 
 void Makhluk::resetTime() {
     currT = deltaT;
+}
+
+char Makhluk::getChar() {
+    return c;
+}
+
+void Makhluk::setChar(char c1) {
+    c = c1;
 }

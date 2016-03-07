@@ -18,7 +18,8 @@ using namespace std;
 
 int main() {
     srand(time(NULL));
-    Matriks M;
+    char c = 'a';
+    Matriks A;
     LinkedList<Makhluk*> test;
     test.insertLast(new Carnivore);
     test.insertLast(new Herbivore);
@@ -28,9 +29,23 @@ int main() {
     test.insertLast(new Female);
     test.insertLast(new Beracun);
     test.insertLast(new NonBeracun);
-    for (int i = 0; i < test.getSize(); i++) {
-        M.putMakhluk(test[i]);
+    for (int i = 0; i < 8; i++) {
+        Makhluk *t = test.deleteFirst();
+        A.setMakhluk(i, 0, t);
+        A.setBoard(i, 0, c);
+        c++;
+        cout << "ID: " << t->getID() << endl;
+        cout << "Type: " << t->getType() << endl;
+        cout << "Power: " << t->getPower() << endl;
+        cout << "CurrT: " << t->getCurrT() << endl;
+        cout << "Arah: " << t->getArah() << endl;
+        cout << "Char: " << t->getChar() << endl;
+        cout << endl;
+        test.insertLast(t);
     }
-    M.display();
+    for (int i = 0; i < 8; i++){
+        A.display();
+        A.moveAll();
+    }
     return 0;
 }

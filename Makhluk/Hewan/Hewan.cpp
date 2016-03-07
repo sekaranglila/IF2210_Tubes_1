@@ -1,6 +1,6 @@
 #include "Hewan.h"
 
-Hewan::Hewan(char type) : Makhluk(randomizePower(), randomizeDir(), type, randomizeT()) { }
+Hewan::Hewan(string type) : Makhluk(randomizePower(), randomizeDir(), type, randomizeT()) { }
 
 Hewan::~Hewan() { }
 
