@@ -44,6 +44,11 @@ public:
      * @return deltaT value
      */
     virtual int randomizeT();
+    
+    /**
+     * Set the battle power of Bakteri respective to the other Makhluk
+     */
+    virtual void setBattlePowerToOpponent(const Makhluk &M);
 };
 
 #endif //MANUSIA_H
