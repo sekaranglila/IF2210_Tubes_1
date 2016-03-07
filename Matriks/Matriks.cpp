@@ -64,7 +64,9 @@ void Matriks::action(Makhluk *M) {
     M->decTime();
     if (M->getCurrT() == 0) {
         M->resetTime();
-        move(M);
+        if (M->getType() != "NonBeracun" && M->getType() != "Beracun") {
+            move(M);
+        }
     }
 }
 

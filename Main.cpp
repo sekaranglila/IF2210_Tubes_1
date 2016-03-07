@@ -6,14 +6,6 @@
 #include <cstdlib>
 #include "LinkedList/LinkedList.h"
 #include "Matriks/Matriks.h"
-#include "Makhluk/Hewan/Herbivore.h"
-#include "Makhluk/Hewan/Carnivore.h"
-#include "Makhluk/Hewan/Omnivore.h"
-#include "Makhluk/Bakteri/Bakteri.h"
-#include "Makhluk/Manusia/Men.h"
-#include "Makhluk/Manusia/Female.h"
-#include "Makhluk/Tumbuhan/Beracun.h"
-#include "Makhluk/Tumbuhan/NonBeracun.h"
 
 using namespace std;
 
