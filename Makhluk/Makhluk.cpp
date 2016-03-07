@@ -1,4 +1,12 @@
 #include "Makhluk.h"
+#include "Hewan/Herbivore.h"
+#include "Hewan/Carnivore.h"
+#include "Hewan/Omnivore.h"
+#include "Bakteri/Bakteri.h"
+#include "Manusia/Men.h"
+#include "Manusia/Female.h"
+#include "Tumbuhan/Beracun.h"
+#include "Tumbuhan/NonBeracun.h"
 
 using namespace std;
 
@@ -90,4 +98,25 @@ void Makhluk::decTime() {
 
 void Makhluk::resetTime() {
     currT = deltaT;
+}
+
+Makhluk* Makhluk::createRandomMakhluk() {
+    int num = rand() % 8;
+    if (num == 0) {
+        return new Herbivore;
+    } else if (num == 1) {
+        return new Carnivore;
+    } else if (num == 2) {
+        return new Omnivore;
+    } else if (num == 3) {
+        return new Bakteri;
+    } else if (num == 4) {
+        return new Men;
+    } else if (num == 5) {
+        return new Female;
+    } else if (num == 6) {
+        return new Beracun;
+    } else {
+        return new NonBeracun;
+    }
 }

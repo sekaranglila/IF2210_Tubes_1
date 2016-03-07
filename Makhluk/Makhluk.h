@@ -2,7 +2,6 @@
 #define MAKHLUK_H
 
 #include <stdlib.h>
-#include <time.h>
 #include <string>
 
 using namespace std;
@@ -167,6 +166,12 @@ public:
      * @param M The Makhluk opponent
      */
     virtual void setBattlePowerToOpponent(const Makhluk &M) { }
+
+    /**
+     * Create a Makhluk with a random type
+     * @return Address of the created Makhluk
+     */
+    static Makhluk* createRandomMakhluk();
 
 private:
     static int idCounter; // Sebuah pencacah jumlah makhluk hidup yang telah dibuat

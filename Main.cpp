@@ -23,7 +23,7 @@ int main() {
     LinkedList<Makhluk*> test;
 
     for (int i = 0; i < 10; i++) {
-        Makhluk *m = new Bakteri;
+        Makhluk *m = Makhluk::createRandomMakhluk();
         test.insertLast(m);
         A.putMakhluk(m);
     }
