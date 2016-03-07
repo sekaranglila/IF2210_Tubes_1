@@ -15,10 +15,6 @@ Matriks::Matriks()
     dimY = maxY;
 }
 
-/* Matriks::Matriks(const char* filename){
-    load(filename);
-} */
-
 Matriks::Matriks(const Matriks& M){
     dimX = M.dimX;
     dimY = M.dimY;
@@ -49,35 +45,6 @@ void Matriks::display(){
     }
 }
 
-/* void Matriks::load(const char* filename){
-    char c;
-    int x = 0, y = 0;
-    char b[100][100];
-
-    ifstream in(filename, ios::in);
-    while (in.get(c)){
-        b[y][x] = c;
-        x++;
-        in.get(c); //Skips a space
-        if ((int)c == 10){
-            y++;
-            x = 0;
-        }
-    }
-    y++; //Last line
-    board = new Makhluk**[x];
-    for (int i = 0; i < x; i++){
-        board[i] = new Makhluk*[y];
-        for (int j = 0; j < y; j++){
-            if (b[i][j] != NULL){
-                board[i][j] = b[i][j];
-            }
-        }
-    }
-    dimX = x;
-    dimY = y;
-} */
-
 void Matriks::save(const char* filename){
     ofstream out(filename, ios::out);
     for (int i = 0; i < dimX; i++){
@@ -95,7 +62,7 @@ void Matriks::save(const char* filename){
 
 void Matriks::action(Makhluk *M) {
     M->decTime();
-    if (M->getCurrT()) {
+    if (M->getCurrT() == 0) {
         M->resetTime();
         move(M);
     }
@@ -154,23 +121,6 @@ void Matriks::move(int x, int y, int movx, int movy) {
     }
 }
 
-void Matriks::setBoard(int x, int y, char c){
-    if (x < dimX && y < dimY){
-        board[x][y]->setChar(c);
-    } else {
-        cout << "Koordinat melebihi ukuran board." << endl;
-    }
-}
-
-char Matriks::getBoard(int x, int y){
-    if ((x < dimX) && (y < dimY)){
-        return board[x][y]->getChar();
-    } else {
-        cout << "Koordinat melebihi ukuran board." << endl;
-        return ' ';
-    }
-}
-
 void Matriks::putMakhluk(int x, int y, Makhluk* M){
     M->setPos(x, y);
     board[x][y] = M;
@@ -186,8 +136,8 @@ void Matriks::putMakhluk(Makhluk *M) {
 }
 
 void Matriks::battle(Makhluk *M1, Makhluk *M2) {
-    M1->updateBattlePower(*M2);
-    M2->updateBattlePower(*M1);
+    M1->setBattlePowerToOpponent(*M2);
+    M2->setBattlePowerToOpponent(*M1);
     if (M1->getBattlePower() < M2->getBattlePower()) {
         deleteMakhluk(M1);
         M1->setDead();

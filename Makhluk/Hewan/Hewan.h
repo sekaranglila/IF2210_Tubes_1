@@ -22,7 +22,7 @@ public:
      * Virtual method of Hewan to eat something and gain 10% power of its prey
      * @param M Makhluk that will be eaten by this Hewan
      */
-    virtual void makan(Makhluk *M);
+    virtual void makan(const Makhluk &M);
 
     /**
      * Virtual method of Hewan to generate its power, with range from 20 to 40

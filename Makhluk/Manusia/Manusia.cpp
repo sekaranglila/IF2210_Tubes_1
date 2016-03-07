@@ -10,12 +10,12 @@ Manusia::Manusia(string type, char c) : Makhluk(randomizePower(), randomizeDir()
 
 Manusia::~Manusia() { }
 
-void Manusia::makan(Makhluk *M) {
+void Manusia::makan(const Makhluk &M) {
 //Kamus Lokal
     double x;
 
 //Algoritma
-    x = (double) (getPower() + (0.1 * M->getPower()));
+    x = (double) (getPower() + (0.1 * M.getPower()));
     setPower(x);
 }
 

@@ -4,11 +4,11 @@ Bakteri::Bakteri() : Makhluk(randomizePower(), randomizeDir(), "Bakteri", 'B', r
 
 Bakteri::~Bakteri() { }
 
-void Bakteri::makan(Makhluk *M) {
+void Bakteri::makan(const Makhluk &M) {
     double x;
 
-    if (M->getPower() < getPower()) {
-        x = getPower() + (0.5 * M->getPower());
+    if (M.getPower() < getPower()) {
+        x = getPower() + (0.5 * M.getPower());
     } else {
         x = 1.2 * getPower();
     }
@@ -29,10 +29,10 @@ int Bakteri::randomizeT() {
     return (rand() % 2) + 1;
 }
 
-void Bakteri::updateBattlePower(const Makhluk &M) {
+void Bakteri::setBattlePowerToOpponent(const Makhluk &M) {
     if (M.getType() == "NonBeracun" || M.getType() == "Beracun") {
-        setBattlePower(-1);
+        setBattlePower(-1); // Will always lose
     } else {
-        setBattlePower(10);
+        setBattlePower(getPower()); // Normal power
     }
 }

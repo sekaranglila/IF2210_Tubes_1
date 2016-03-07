@@ -4,8 +4,8 @@ Hewan::Hewan(string type, char c) : Makhluk(randomizePower(), randomizeDir(), ty
 
 Hewan::~Hewan() { }
 
-void Hewan::makan(Makhluk *M) {
-    double x = getPower() + (0.1 * M->getPower());
+void Hewan::makan(const Makhluk &M) {
+    double x = getPower() + (0.1 * M.getPower());
 
     setPower(x);
 }

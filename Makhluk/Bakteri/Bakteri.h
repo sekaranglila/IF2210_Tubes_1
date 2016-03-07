@@ -22,7 +22,7 @@ public:
      * else, this Bakteri eats M and gain 50% of M's power
      * @param M Makhluk that will be eaten by this Bakteri
      */
-    virtual void makan(Makhluk *M);
+    virtual void makan(const Makhluk &M);
 
     /**
      * Virtual method of Bakteri to generate its power, range from 2 to 5
@@ -43,7 +43,7 @@ public:
     /**
      * Set the battle power of Bakteri respective to the other Makhluk
      */
-    virtual void updateBattlePower(const Makhluk &M);
+    virtual void setBattlePowerToOpponent(const Makhluk &M);
 };
 
 #endif //BAKTERI_H

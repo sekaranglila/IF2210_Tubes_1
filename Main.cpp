@@ -40,7 +40,7 @@ int main() {
         system("clear");
         A.display();
         cout << endl;
-        sleep(1);
+        usleep(500000);
     }
     cout << "FINISHED" << endl;
     return 0;

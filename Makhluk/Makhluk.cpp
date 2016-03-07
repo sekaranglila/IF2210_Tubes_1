@@ -12,7 +12,7 @@ Makhluk::Makhluk(double _power, int _arah, string _type, char _c, int _deltaT) :
 //dtor
 Makhluk::~Makhluk() { }
 
-//getter
+/* GETTER */
 double Makhluk::getPower() const {
     return power;
 }
@@ -57,7 +57,7 @@ double Makhluk::getBattlePower() const {
     return battlePower;
 }
 
-//setter
+/* SETTER */
 void Makhluk::setPower(double i) {
     power = i;
 }
@@ -78,10 +78,6 @@ void Makhluk::setArah (int x) {
     arah = x;
 }
 
-void Makhluk::setChar(char c1) {
-    c = c1;
-}
-
 void Makhluk::setPos(int x, int y) {
     pos[0] = x;
     pos[1] = y;
@@ -91,7 +87,7 @@ void Makhluk::setBattlePower(int power) {
     battlePower = power;
 }
 
-// Other methods
+/* OTHER METHODS */
 void Makhluk::decTime() {
     --currT;
 }

@@ -24,7 +24,7 @@ public :
      * Eating other Makhluk
      * As Tumbuhan cannot eat other Makhluk, it does not do anything
      */
-    virtual void makan(Makhluk *M) { }
+    virtual void makan(const Makhluk &M) { }
 
     /**
      * Generate the power of Tumbuhan

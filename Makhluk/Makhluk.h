@@ -24,7 +24,8 @@ public:
      */
     virtual ~Makhluk();
 
-    //getter
+    /* GETTER */
+
     /**
      * Get the power of this Makhluk
      * @return power return double typed attribute
@@ -91,7 +92,8 @@ public:
      */
     double getBattlePower() const;
 
-    //setter
+    /* SETTER */
+
     /**
      * Set the power of this Makhluk
      * @param x the amount of power to be set to Makhluk
@@ -121,23 +123,24 @@ public:
     void setArah(int);
 
     /**
-     * Set the char of Makhluk
-     */
-    void setChar(char c1);
-
-    /**
      * Set position of a Makhluk
      * @param x x position of Makhluk
      * @param y y position of Makhluk
      */
     void setPos(int x, int y);
 
-    //method lain
+    /**
+     * Set battle power of Makhluk
+     */
+    void setBattlePower(int x);
+
+    /* OTHER METHODS */
+
     /**
      * Eating other Makhluk
      * @param M what Makhluk that is being eaten
      */
-    virtual void makan(Makhluk *M) = 0;
+    virtual void makan(const Makhluk &M) = 0;
 
     /**
      * Generate the power of a Makhluk.
@@ -165,14 +168,10 @@ public:
     void resetTime();
 
     /**
-     *
+     * Set the battle power of a Makhluk based on the opponent's type
+     * @param M The Makhluk opponent
      */
-    void setBattlePower(int);
-
-    /**
-     *
-     */
-    virtual void updateBattlePower(const Makhluk &M) { }
+    virtual void setBattlePowerToOpponent(const Makhluk &M) { }
 
 private:
     static int idCounter; // Sebuah pencacah jumlah makhluk hidup yang telah dibuat
