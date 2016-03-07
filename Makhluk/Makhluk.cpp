@@ -66,10 +66,6 @@ void Makhluk::setDead() {
     status = 0;
 }
 
-void Makhluk::setAlive() {
-    status = 1;
-}
-
 void Makhluk::setType(string s) {
     type = s;
 }

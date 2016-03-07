@@ -101,11 +101,6 @@ public:
     void setPower(double);
 
     /**
-     * Set the status of this Makhluk to 1
-     */
-    void setAlive(); //set status makhluk hidup
-
-    /**
      * Set the status of this Makhluk to 0
      */
     void setDead(); //set status makhluk menjadi mati
