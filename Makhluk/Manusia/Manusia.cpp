@@ -44,3 +44,11 @@ int Manusia::randomizeDir() {
 int Manusia::randomizeT() {
     return (rand() % 3) + 2;
 }
+
+void Manusia::setBattlePowerToOpponent(const Makhluk &M){
+    if (M.getType() == "Herbivore") {
+        setBattlePower(0); //Herbivores and Human do not interact, therefore the battle power is 0
+    } else {
+        setBattlePower(getPower()); //Normal Power
+    }
+}
