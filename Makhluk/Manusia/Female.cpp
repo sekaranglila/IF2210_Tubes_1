@@ -4,7 +4,7 @@
 
 #include "Female.h"
 
-Female::Female() : Manusia("Female"){
+Female::Female() : Manusia("Female", 'F') {
 
 }
 

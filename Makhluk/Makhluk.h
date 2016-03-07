@@ -16,7 +16,7 @@ public:
      * @param _arah defines its direction
      * @param _type defines what type of Makhluk it is
      */
-    Makhluk(double _power, int _arah, string _type, int _deltaT);
+    Makhluk(double _power, int _arah, string _type, char _c, int _deltaT);
 
     //dtor
     /**
@@ -29,43 +29,67 @@ public:
      * Get the power of this Makhluk
      * @return power return double typed attribute
      */
-    double getPower();
+    double getPower() const;
 
     /**
      * Get the status of this Makhluk
      * @return status return integer 1 or 0
      */
-    int getStatus();
+    int getStatus() const;
 
     /**
      * Get the ID of this Makhluk
      * @return id return integer generated from idCounter
      */
-    int getID();
+    int getID() const;
 
     /**
      * Get the direction of this Makhluk
      * @return arah return integer between 0 - 7
      */
-    int getArah();
+    int getArah() const;
 
     /**
      * Get the type of this Makhluk
      * @return type return string depends on its child
      */
-    string getType();
+    string getType() const;
 
     /**
      * Get the deltaT of Makhluk
      * @return deltaT of Makhluk
      */
-    int getDeltaT();
+    int getDeltaT() const;
 
     /**
      * Get the currT of Makhluk
      * @return currT of Makhluk
      */
-    int getCurrT();
+    int getCurrT() const;
+
+    /**
+     * Get the x position of Makhluk
+     * @return x position of Makhluk
+     */
+    int getX() const;
+
+    /**
+     * Get the y position of Makhluk
+     * @return y position of Makhluk
+     */
+    int getY() const;
+
+    /**
+     * Get the char of Makhluk
+     * @return character representation of Makhluk
+     */
+    char getChar() const;
+
+    /**
+     * Get the
+     * @return battle power of Makhluk
+     */
+    double getBattlePower() const;
 
     //setter
     /**
@@ -95,6 +119,18 @@ public:
      * @param x integer of arah between 0 - 7
      */
     void setArah(int);
+
+    /**
+     * Set the char of Makhluk
+     */
+    void setChar(char c1);
+
+    /**
+     * Set position of a Makhluk
+     * @param x x position of Makhluk
+     * @param y y position of Makhluk
+     */
+    void setPos(int x, int y);
 
     //method lain
     /**
@@ -129,14 +165,14 @@ public:
     void resetTime();
 
     /**
-     * Get the char of Makhluk
+     *
      */
-    char getChar();
+    void setBattlePower(int);
 
     /**
-     * Set the char of Makhluk
+     *
      */
-    void setChar(char c1);
+    virtual void updateBattlePower(const Makhluk &M) { }
 
 private:
     static int idCounter; // Sebuah pencacah jumlah makhluk hidup yang telah dibuat
@@ -144,10 +180,11 @@ private:
     int id; // Id sebuah makhluk hidup. Id makhluk hidup yang pertama kali diciptakan adalah 0
     int arah; // Memberi arah gerak dari makhluk dengan timur = 0 hingga tenggara = 7, secara berlawanan arah jarum jam.
     double power; // Kekuatan suatu makhluk
+    double battlePower;
     int deltaT; // Besar deltaT sebuah makhluk untuk melakukan seuatu aksi
     int currT;
     int pos[2]; // pos[0] merupakan posisi baris, dan pos[1] merupakan posisi kolom sebuah Makhluk
-    int status; // Status hidup atau mati makhluk. Hidup = 1, makhluk = 0
+    int status; // Status hidup atau mati makhluk. Hidup = 1, mati = 0
     char c; //Karakter yang ditampilkan pada board
 };
 

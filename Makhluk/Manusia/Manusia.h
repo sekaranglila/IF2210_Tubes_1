@@ -13,7 +13,7 @@ public:
      * Constructor for class Manusia
      * @param type type is a string that defines the type of Manusia Constructed, Male or Female
      */
-    Manusia(string type);
+    Manusia(string type, char c);
 
     /**
      * Deconstructor for class Manusia

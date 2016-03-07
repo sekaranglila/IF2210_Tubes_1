@@ -1,6 +1,6 @@
 #include "Bakteri.h"
 
-Bakteri::Bakteri() : Makhluk(randomizePower(), randomizeDir(), "Bakteri", randomizeT()) { }
+Bakteri::Bakteri() : Makhluk(randomizePower(), randomizeDir(), "Bakteri", 'B', randomizeT()) { }
 
 Bakteri::~Bakteri() { }
 
@@ -9,11 +9,9 @@ void Bakteri::makan(Makhluk *M) {
 
     if (M->getPower() < getPower()) {
         x = getPower() + (0.5 * M->getPower());
-    }
-    else {
+    } else {
         x = 1.2 * getPower();
     }
-
     setPower(x);
 }
 
@@ -29,4 +27,12 @@ int Bakteri::randomizeDir() {
 
 int Bakteri::randomizeT() {
     return (rand() % 2) + 1;
+}
+
+void Bakteri::updateBattlePower(const Makhluk &M) {
+    if (M.getType() == "NonBeracun" || M.getType() == "Beracun") {
+        setBattlePower(-1);
+    } else {
+        setBattlePower(10);
+    }
 }

@@ -4,7 +4,7 @@
 
 #include "Manusia.h"
 
-Manusia::Manusia(string type) : Makhluk(randomizePower(), randomizeDir(), type, randomizeT()) {
+Manusia::Manusia(string type, char c) : Makhluk(randomizePower(), randomizeDir(), type, c, randomizeT()) {
 
 }
 

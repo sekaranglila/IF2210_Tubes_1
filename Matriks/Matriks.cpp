@@ -93,24 +93,64 @@ void Matriks::save(const char* filename){
     }
 }
 
-void Matriks::move(int x, int y, int movx, int movy){
-    Makhluk* temp;
+void Matriks::action(Makhluk *M) {
+    M->decTime();
+    if (M->getCurrT()) {
+        M->resetTime();
+        move(M);
+    }
+}
 
-    if (x < dimX && y < dimY && movx < dimX && movy < dimY){
-        temp = board[x][y];
-        if (board[movx][movy] != NULL){
-            cout << "Terdapat makhluk pada koordinat " << movx << " " << movy << endl;
+void Matriks::move(Makhluk *M) {
+    int d = M->getArah();
+    switch (d) {
+        case 0:
+            move(M->getX(), M->getY(), M->getX() + 1, M->getY());
+            break;
+        case 1:
+            move(M->getX(), M->getY(), M->getX() + 1, M->getY() + 1);
+            break;
+        case 2:
+            move(M->getX(), M->getY(), M->getX(), M->getY() + 1);
+            break;
+        case 3:
+            move(M->getX(), M->getY(), M->getX() - 1, M->getY() + 1);
+            break;
+        case 4:
+            move(M->getX(), M->getY(), M->getX() - 1, M->getY());
+            break;
+        case 5:
+            move(M->getX(), M->getY(), M->getX() - 1, M->getY() - 1);
+            break;
+        case 6:
+            move(M->getX(), M->getY(), M->getX(), M->getY() - 1);
+            break;
+        case 7:
+            move(M->getX(), M->getY(), M->getX() + 1, M->getY() - 1);
+            break;
+    }
+}
+
+void Matriks::move(int x, int y, int movx, int movy) {
+    if (movx < dimX && movy < dimY && movx >= 0 && movy >= 0) {
+        if (board[movx][movy] != NULL) {
+            battle(board[x][y], board[movx][movy]);
+            if (board[x][y] != NULL) { // Won the battle
+                move(x, y, movx, movy);
+            }
         } else {
+            board[movx][movy] = board[x][y];
+            board[movx][movy]->setPos(movx, movy);
             board[x][y] = NULL;
-            board[movx][movy] = temp;
         }
     } else {
         int a = board[x][y]->getArah();
         a += 4;
         if (a > 7){
-            a -= 7;
+            a -= 8;
         }
         board[x][y]->setArah(a);
+        move(board[x][y]);
     }
 }
 
@@ -131,58 +171,37 @@ char Matriks::getBoard(int x, int y){
     }
 }
 
-void Matriks::setMakhluk(int x, int y, Makhluk* M){
+void Matriks::putMakhluk(int x, int y, Makhluk* M){
+    M->setPos(x, y);
     board[x][y] = M;
 }
 
-void Matriks::moveAll(){
-    for (int i = 0; i < dimX; i++){
-        for (int j = 0; j < dimY; j++){
-            if (board[i][j] != NULL){
-                int m = board[i][j]->getArah();
-                switch(m){
-                    case 0:
-                    {
-                        move(i, j, i-1, j);
-                        break;
-                    }
-                    case 1:
-                    {
-                        move(i, j, i-1, j+1);
-                        break;
-                    }
-                    case 2:
-                    {
-                        move(i, j, i, j+1);
-                        break;
-                    }
-                    case 3:
-                    {
-                        move(i, j, i+1, j+1);
-                        break;
-                    }
-                    case 4:
-                    {
-                        move(i, j, i+1, j);
-                        break;
-                    }
-                    case 5:
-                    {
-                        move(i, j, i+1, j-1);
-                        break;
-                    }
-                    case 6:
-                    {
-                        move(i, j, i, j-1);
-                        break;
-                    }
-                    case 7:
-                    {
-                        move(i, j, i-1, j-1);
-                        break;
-                    }
-                }
-            }
-        }
+void Matriks::putMakhluk(Makhluk *M) {
+    int x, y;
+    do {
+        x = rand() % dimX;
+        y = rand() % dimY;
+    } while (board[x][y] != NULL);
+    putMakhluk(x, y, M);
+}
+
+void Matriks::battle(Makhluk *M1, Makhluk *M2) {
+    M1->updateBattlePower(*M2);
+    M2->updateBattlePower(*M1);
+    if (M1->getBattlePower() < M2->getBattlePower()) {
+        deleteMakhluk(M1);
+        M1->setDead();
+    } else if (M1->getBattlePower() > M2->getBattlePower()) {
+        deleteMakhluk(M2);
+        M2->setDead();
+    } else {
+        deleteMakhluk(M1);
+        deleteMakhluk(M2);
+        M1->setDead();
+        M2->setDead();
     }
+}
+
+void Matriks::deleteMakhluk(Makhluk *M) {
+    board[M->getX()][M->getY()] = NULL;
 }

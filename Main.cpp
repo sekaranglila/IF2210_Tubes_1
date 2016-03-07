@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <cstdlib>
 #include "LinkedList/LinkedList.h"
 #include "Matriks/Matriks.h"
 #include "Makhluk/Hewan/Herbivore.h"
@@ -18,34 +19,29 @@ using namespace std;
 
 int main() {
     srand(time(NULL));
-    char c = 'a';
     Matriks A;
     LinkedList<Makhluk*> test;
-    test.insertLast(new Carnivore);
-    test.insertLast(new Herbivore);
-    test.insertLast(new Omnivore);
-    test.insertLast(new Bakteri);
-    test.insertLast(new Men);
-    test.insertLast(new Female);
-    test.insertLast(new Beracun);
-    test.insertLast(new NonBeracun);
-    for (int i = 0; i < 8; i++) {
-        Makhluk *t = test.deleteFirst();
-        A.setMakhluk(i, 0, t);
-        A.setBoard(i, 0, c);
-        c++;
-        cout << "ID: " << t->getID() << endl;
-        cout << "Type: " << t->getType() << endl;
-        cout << "Power: " << t->getPower() << endl;
-        cout << "CurrT: " << t->getCurrT() << endl;
-        cout << "Arah: " << t->getArah() << endl;
-        cout << "Char: " << t->getChar() << endl;
-        cout << endl;
-        test.insertLast(t);
+
+    for (int i = 0; i < 10; i++) {
+        Makhluk *m = new Bakteri;
+        test.insertLast(m);
+        A.putMakhluk(m);
     }
-    for (int i = 0; i < 8; i++){
+    A.display();
+    cout << endl;
+    while (test.getSize() > 1) {
+        for (int j = 0; j < test.getSize(); j++) {
+            if (test[j]->getStatus() == 0) {
+                test.deleteNodeAt(j);
+            } else {
+                A.action(test[j]);
+            }
+        }
+        system("clear");
         A.display();
-        A.moveAll();
+        cout << endl;
+        sleep(1);
     }
+    cout << "FINISHED" << endl;
     return 0;
 }

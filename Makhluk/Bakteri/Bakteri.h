@@ -39,6 +39,11 @@ public:
      * The value ranges from 1 to 2
      */
     virtual int randomizeT();
+
+    /**
+     * Set the battle power of Bakteri respective to the other Makhluk
+     */
+    virtual void updateBattlePower(const Makhluk &M);
 };
 
 #endif //BAKTERI_H

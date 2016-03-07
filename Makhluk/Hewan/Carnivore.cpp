@@ -1,5 +1,5 @@
 #include "Carnivore.h"
 
-Carnivore::Carnivore() : Hewan("Carnivore") { }
+Carnivore::Carnivore() : Hewan("Carnivore", 'C') { }
 
 Carnivore::~Carnivore() { }

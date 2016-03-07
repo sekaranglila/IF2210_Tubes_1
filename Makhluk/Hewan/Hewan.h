@@ -9,7 +9,7 @@ public:
      * Constructor of Hewan
      * @param type string that will defines what type of Makhluk it is
      */
-    Hewan(string type);
+    Hewan(string type, char c);
 
     //dtor
     /**

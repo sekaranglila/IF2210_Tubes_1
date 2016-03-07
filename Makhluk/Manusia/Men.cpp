@@ -4,7 +4,7 @@
 
 #include "Men.h"
 
-Men::Men() : Manusia("Male"){
+Men::Men() : Manusia("Male", 'M') {
 
 }
 

@@ -4,7 +4,7 @@
 
 #include "Beracun.h"
 
-Beracun::Beracun() : Tumbuhan("Beracun"){
+Beracun::Beracun() : Tumbuhan("Beracun", 'R') {
 
 }
 
