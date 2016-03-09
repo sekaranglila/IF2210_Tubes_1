@@ -31,6 +31,12 @@ public :
      * @return 0 (initial power of Tumbuhan)
      */
     virtual double randomizePower();
+    
+    /**
+     * Tumbuhan eating by doing photosynthesis
+     * Tumbuhan gains +1 power everytime it does this void
+     */
+     void photosynthesis(); 
 
     /**
      * Generate the direction of Tumbuhan
