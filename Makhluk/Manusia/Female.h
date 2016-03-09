@@ -15,9 +15,9 @@ public:
     Female();
 
     /**
-    *Deconstructor for the Men class
+    *Deconstructor for the Female class
     */
     virtual ~Female();
 };
 
-#endif //Men_H
+#endif //Female_H
