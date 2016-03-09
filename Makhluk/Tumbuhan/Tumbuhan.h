@@ -45,6 +45,11 @@ public :
      * @return The deltaT of Tumbuhan
      */
     virtual int randomizeT();
+    
+     /**
+     * Set the battle power of Bakteri respective to the other Makhluk
+     */
+    virtual void setBattlePowerToOpponent(const Makhluk &M);
 };
 
 #endif //TUMBUHAN_H
