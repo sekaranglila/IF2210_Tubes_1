@@ -19,6 +19,10 @@ double Tumbuhan::randomizePower() {
     return 0;
 }
 
+void Tumbuhan::photosynthesis() {
+    setPower(getPower() + 1);
+} 
+
 int Tumbuhan::randomizeDir() {
     return 0;
 }
